@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Kosovo",
+    "country": "Prishtina",
+    "description": "Capital region"
+  },
+  {
+    "id": 2,
+    "name": "Albania",
+    "country": "Tirana",
+    "description": "Capital region"
+  }
+]

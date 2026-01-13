@@ -1,0 +1,52 @@
+[
+    {
+        "id":1,
+        "name": "Prishtina",
+        "contryCode": "ks",
+        "population":258163,
+        "description":"Kryeqyteti i kosoves"
+    },
+
+      {
+        "id":2,
+        "name": "Prizren",
+        "contryCode": "ks",
+        "population":258163,
+        "description":"qytet i kosoves"
+    },
+         {
+        "id":3,
+        "name": "Podujev",
+        "contryCode": "ks",
+        "population":258163,
+        "description":"qytet i kosoves"
+    },
+    {
+        "id":3,
+        "name": "Lipjan",
+        "contryCode": "ks",
+        "population":258163,
+        "description":"qytet i kosoves"
+    },
+         {
+        "id":4,
+        "name": "Mitrovic",
+        "contryCode": "ks",
+        "population":258163,
+        "description":"qytet i kosoves"
+    },
+         {
+        "id":5,
+        "name": "Peja",
+        "contryCode": "ks",
+        "population":258163,
+        "description":"qytet i kosoves"
+    },
+         {
+        "id":6,
+        "name": "Gjakova",
+        "contryCode": "ks",
+        "population":125000,
+        "description":"qytet i kosoves"
+    }
+]
