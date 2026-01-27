@@ -1,6 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import theme from "../theme";
 
 import { MainStackNavigator, AboutStackNavigator } from "./StackNavigator";
 
@@ -15,7 +16,7 @@ const BottomTabNavigator = () => {
         tabBarInactiveTintColor: "lightgray",
         tabBarShowLabel: true,
         tabBarStyle: {
-          backgroundColor: "#FF6347",
+          backgroundColor: theme.colors.accent,
         },
         tabBarLabelStyle: {
           fontSize: 12,
@@ -23,7 +24,7 @@ const BottomTabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="HomeTab"
         component={MainStackNavigator}
         options={{
           tabBarLabel: "Home",
@@ -38,7 +39,7 @@ const BottomTabNavigator = () => {
       />
 
       <Tab.Screen
-        name="About"
+        name="AboutTab"
         component={AboutStackNavigator}
         options={{
           tabBarLabel: "About",

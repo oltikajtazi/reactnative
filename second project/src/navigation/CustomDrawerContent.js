@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Alert } from "react-native";
+import theme from "../theme";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -21,8 +22,8 @@ const CustomDrawerContent = (props) => {
           style={styles.avatar}
         />
         <View>
-          <Text style={[styles.name, darkMode && styles.darkText]}>Dev User</Text>
-          <Text style={[styles.email, darkMode && styles.darkText]}>dev@local.test</Text>
+          <Text style={[styles.name, darkMode ? styles.darkText : { color: theme.colors.text }]}>Dev User</Text>
+          <Text style={[styles.email, darkMode ? styles.darkText : { color: theme.colors.muted }]}>dev@local.test</Text>
         </View>
       </View>
 
@@ -38,7 +39,7 @@ const CustomDrawerContent = (props) => {
         <DrawerItem
           label={() => (
             <View style={styles.row}>
-              <Text style={darkMode ? styles.darkText : undefined}>About</Text>
+              <Text style={darkMode ? styles.darkText : { color: theme.colors.text }}>About</Text>
               <View style={styles.badge}><Text style={styles.badgeText}>3</Text></View>
             </View>
           )}
@@ -60,11 +61,11 @@ const CustomDrawerContent = (props) => {
       <View style={styles.footer}>
         <View style={styles.rowBetween}>
           <View style={styles.row}>
-            <MaterialCommunityIcons name="theme-light-dark" size={20} />
-            <Text style={[styles.footerText, darkMode && styles.darkText]}>Theme</Text>
+            <MaterialCommunityIcons name="theme-light-dark" size={20} color={theme.colors.muted} />
+            <Text style={[styles.footerText, darkMode && styles.darkText, !darkMode && { color: theme.colors.text }]}>Theme</Text>
           </View>
           <View>
-            <Text onPress={() => setDarkMode(!darkMode)} style={styles.toggleLink}>
+            <Text onPress={() => setDarkMode(!darkMode)} style={[styles.toggleLink, { color: theme.colors.primary }]}>
               {darkMode ? "Light" : "Dark"}
             </Text>
           </View>
@@ -92,10 +93,10 @@ const styles = StyleSheet.create({
   footer: { marginTop: 24, borderTopWidth: 1, borderTopColor: "#eee", paddingTop: 12 },
   row: { flexDirection: "row", alignItems: "center" },
   rowBetween: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 16 },
-  badge: { backgroundColor: "#FF6347", borderRadius: 10, paddingHorizontal: 6, marginLeft: 8 },
+  badge: { backgroundColor: theme.colors.accent, borderRadius: 10, paddingHorizontal: 6, marginLeft: 8 },
   badgeText: { color: "white", fontSize: 12 },
   footerText: { marginLeft: 8 },
-  toggleLink: { color: "#007AFF" },
+  toggleLink: { color: theme.colors.primary },
   darkText: { color: "#fff" },
 });
 

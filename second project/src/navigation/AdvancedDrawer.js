@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import BottomTabNavigator from "./TabNavigator";
 import { AboutStackNavigator } from "./StackNavigator";
 import CustomDrawerContent from "./CustomDrawerContent";
+import theme from "../theme";
 
 const Drawer = createDrawerNavigator();
 
@@ -14,10 +15,10 @@ const AdvancedDrawer = () => {
   const screenOptions = useMemo(
     () => ({
       headerShown: false,
-      drawerActiveTintColor: darkMode ? "#fff" : "#FF6347",
-      drawerInactiveTintColor: darkMode ? "#bbb" : "#666",
+      drawerActiveTintColor: darkMode ? "#fff" : theme.colors.accent,
+      drawerInactiveTintColor: darkMode ? "#bbb" : theme.colors.muted,
       drawerStyle: {
-        backgroundColor: darkMode ? "#111" : "#fff",
+        backgroundColor: darkMode ? "#0b0b0b" : theme.colors.surface,
       },
     }),
     [darkMode]
@@ -52,16 +53,19 @@ const AdvancedDrawer = () => {
 
       <Drawer.Screen
         name="SettingsPlaceholder"
-        component={() => (
-          <View style={styles.center}><Text>Settings & advanced options</Text></View>
-        )}
         options={{
           drawerLabel: "Settings",
           drawerIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="cog" color={color} size={size ?? 22} />
           ),
         }}
-      />
+      >
+        {() => (
+          <View style={styles.center}>
+            <Text>Settings & advanced options</Text>
+          </View>
+        )}
+      </Drawer.Screen>
     </Drawer.Navigator>
   );
 };
