@@ -20,6 +20,9 @@ const AdvancedDrawer = () => {
       drawerStyle: {
         backgroundColor: darkMode ? "#0b0b0b" : theme.colors.surface,
       },
+      sceneContainerStyle: {
+        pointerEvents: "auto",
+      },
     }),
     [darkMode]
   );

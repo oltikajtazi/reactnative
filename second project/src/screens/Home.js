@@ -6,6 +6,7 @@ import Swiper from "react-native-swiper";
 import { Image } from "react-native";
 import CarouselRow from "../components/CarouselRow";
 import theme from "../theme";
+import Icons from "../components/Icons";
 
 const { width: WINDOW_WIDTH } = Dimensions.get("window");
 const SLIDE_HEIGHT = 320;
@@ -63,6 +64,31 @@ const Home = () => {
       <View style={{ width: "100%", paddingHorizontal: 4 }}>
         <CarouselRow title="Aktuelle film" data={movies} />
       </View>
+
+      <View style={styles.devicesSection}>
+        <Text style={styles.devicesTitle}>Supported Devices</Text>
+        <View style={styles.devicesGrid}>
+          <View style={styles.deviceItemWrapper}>
+            <Icons name="apple" iconText="iPhone" />
+          </View>
+          <View style={styles.deviceItemWrapper}>
+            <Icons name="android" iconText="Samsung" />
+          </View>
+          <View style={styles.deviceItemWrapper}>
+            <Icons name="laptop" iconText="Laptop" />
+          </View>
+          <View style={styles.deviceItemWrapper}>
+            <Icons name="tablet" iconText="Tablet" />
+          </View>
+          <View style={styles.deviceItemWrapper}>
+            <Icons name="mouse" iconText="Mouse" />
+          </View>
+          <View style={styles.deviceItemWrapper}>
+            <Icons name="keyboard-outline" iconText="Keyboard" />
+          </View>
+        </View>
+      </View>
+
 
     </View>
       
@@ -140,6 +166,45 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: theme.colors.soft,
+  },
+  devicesSection: {
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+  },
+  devicesTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: theme.colors.text,
+    marginBottom: 16,
+  },
+  devicesGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  deviceItemWrapper: {
+    width: '31%',
+    aspectRatio: 1,
+    backgroundColor: theme.colors.surface,
+    borderRadius: 12,
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 3,
+      },
+      web: {
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+      }
+    })
   },
     
 });

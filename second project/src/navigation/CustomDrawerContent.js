@@ -5,7 +5,7 @@ import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const CustomDrawerContent = (props) => {
-  const { navigation, darkMode, setDarkMode } = props;
+  const { navigation, darkMode, setDarkMode, pointerEvents, ...restProps } = props;
 
   const handleLogout = () => {
     Alert.alert("Logout", "Are you sure you want to logout?", [
@@ -15,7 +15,11 @@ const CustomDrawerContent = (props) => {
   };
 
   return (
-    <DrawerContentScrollView {...props} contentContainerStyle={styles.container}>
+    <DrawerContentScrollView 
+      {...restProps} 
+      contentContainerStyle={styles.container}
+      style={{ pointerEvents }}
+    >
       <View style={styles.header}>
         <Image
           source={{ uri: "https://placekitten.com/80/80" }}
