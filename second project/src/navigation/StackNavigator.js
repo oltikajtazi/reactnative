@@ -1,23 +1,23 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import theme from "../theme";
 
 import Home from "../screens/Home";
 import About from "../screens/About";
+import Android from "../screens/Android";
 
 const Stack = createStackNavigator();
 
 const screenOptionStyle = {
   headerStyle: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: "#2C3E50",
   },
-  headerTintColor: "white",
+  headerTintColor: "#00BCD4",
 };
 
 const MainStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={screenOptionStyle}>
-      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };
@@ -25,9 +25,26 @@ const MainStackNavigator = () => {
 const AboutStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={screenOptionStyle}>
-      <Stack.Screen name="AboutScreen" component={About} />
+      <Stack.Screen name="About" component={About} />
     </Stack.Navigator>
   );
 };
 
-export { MainStackNavigator, AboutStackNavigator };
+const AndroidStackNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen
+        name="Android"
+        component={Android}
+        options={{
+          headerStyle: {
+            backgroundColor: "#2f3b52",
+          },
+          headerTintColor: "#fff",
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export { MainStackNavigator, AboutStackNavigator, AndroidStackNavigator };

@@ -1,51 +1,39 @@
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { setStatusBarBackgroundColor } from "expo-status-bar";
-import react from "react";
-import { View,Text,StyleSheet} from "react-native-web";
 
+const Icon = (props) => {
+  return (
+    <View style={styles.iconContainer}>
+      <View style={styles.iconWrapper}>
+        <MaterialCommunityIcons name={props.name} size={27} color="#00BCD4" />
+      </View>
+      <Text style={styles.iconText}>{props.iconText}</Text>
+    </View>
+  );
+};
 
-const Icons = ({ name, iconText }) => {
-    return (
-        <View style={styles.iconwrapper}>
+const styles = StyleSheet.create({
+  iconWrapper: {
+    backgroundColor: "#2C3E50",
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 50,
+  },
 
-            <View style={styles.iconContainer}>
+  iconContainer: {
+    alignItems: "center",
+    width: 60,
+    height: 60,
+  },
 
-                <MaterialCommunityIcons name={name} size={27} color="black"/>
+  iconText: {
+    height: 20,
+    fontWeight: "600",
+    color: "#333",
+  },
+});
 
-             <Text style={styles.iconText}>
-                {iconText}
-
-             </Text>
-        </View>
-
-
-        </View>
-
-
-    )
-        
-    }
-
-    const styles = StyleSheet.create({
-        iconwrapper: {
-            setStatusBarBackgroundColor: "2c3e50",
-            width:"100%",
-            height:"100%",
-            alignItems:"center",
-            justifyContent:"center",
-            bordeRadius:10,
-        },
-        iconContainer: {
-            alignItems:"center",
-            justifyContent:"center",
-        },
-        iconText:{
-            height:20,
-            fontWeight:"500",
-            color:"#34495e",
-        }
-    })
-     
-
-    
-    export default Icons;
+export default Icon;

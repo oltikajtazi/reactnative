@@ -1,94 +1,79 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import Swiper from "react-native-swiper";
 import Icon from "../components/Icons";
-
-
-import Item from "../components/item";
-import data from "../data/data.json"
-import { FlatList } from "react-native-web";
+import Item from "../components/Item";
+import data from "../data/data.json";
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
 
-  const [products,setProducts]=useState([]);
-
-  useEffect(()=>{
+  useEffect(() => {
+    // Lesson 22: simulate fetching data
     setProducts(data.popularproducts);
-  },[])
+  }, []);
 
-
-  
   return (
-    <FlatList 
-    ListHeaderComponent={
-      <>
-      
-        <Swiper
-        style={styles.swiper}
-        showsPagination
-        dotColor="#999"
-        activeDotColor="#007AFF"
-      >
-        <View style={styles.slide}>
-          <Image
-            source={require("../../assets/image1.png")}
-            style={styles.slideImage}
-            resizeMode="cover"
-          />
-        </View>
-        <View style={styles.slide}>
-          <Image
-            source={require("../../assets/image1.jpg")}
-            style={styles.slideImage}
-            resizeMode="cover"
-          />
-        </View>
-        <View style={styles.slide}>
-          <Image
-            source={require("../../assets/image1.jpg")}
-            style={styles.slideImage}
-            resizeMode="cover"
-          />
-        </View>
-      </Swiper>
+    <FlatList
+      ListHeaderComponent={
+        <>
+          {/* Swiper Section */}
+          <Swiper
+            style={styles.swiper}
+            showsPagination
+            dotColor="#999"
+            activeDotColor="#007AFF"
+          >
+            <View style={styles.slide}>
+              <Image
+                source={require("../../assets/image1.png")}
+                style={styles.slideImage}
+                resizeMode="cover"
+              />
+            </View>
+            <View style={styles.slide}>
+              <Image
+                source={require("../../assets/image1.jpg")}
+                style={styles.slideImage}
+                resizeMode="cover"
+              />
+            </View>
+            <View style={styles.slide}>
+              <Image
+                source={require("../../assets/image1.jpg")}
+                style={styles.slideImage}
+                resizeMode="cover"
+              />
+            </View>
+          </Swiper>
 
-      <View style={styles.iconsContainer}>
-        <Icon name="cellphone-iphone" iconText="iPhone" />
-        <Icon name="android" iconText="Samsung" />
-        <Icon name="laptop" iconText="Laptop" />
-      </View>
+          {/* Icons Section */}
+          <View style={styles.iconsContainer}>
+            <Icon name="cellphone-iphone" iconText="iPhone" />
+            <Icon name="android" iconText="Samsung" />
+            <Icon name="laptop" iconText="Laptop" />
+          </View>
 
-      <View style={styles.iconsContainer}>
-        <Icon name="tablet" iconText="Tablet" />
-        <Icon name="mouse" iconText="Mouse" />
-        <Icon name="keyboard-outline" iconText="Keyboard" />
-      </View>
-      
-      
-      </>
+          <View style={styles.iconsContainer}>
+            <Icon name="tablet" iconText="Tablet" />
+            <Icon name="mouse" iconText="Mouse" />
+            <Icon name="keyboard-outline" iconText="Keyboard" />
+          </View>
 
-
-
-    } 
-    data={products}
-    keyExtractor={(item)=>item.id.toString()}
-    renderItem={({item})=><Item item={item}/>}
-    contentContainerStyle={styles.listContainer}
-   
-    
-   
-
-
+          {/* Products Title */}
+          <Text style={styles.sectionTitle}>Most popular products</Text>
+        </>
+      }
+      data={products}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => <Item item={item} />}
+      contentContainerStyle={styles.listContainer}
+      showsVerticalScrollIndicator={false}
     />
-    
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
   swiper: {
     height: 200,
   },
@@ -110,8 +95,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-
-  
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginVertical: 20,
+    marginLeft: 16,
+  },
+  listContainer: {
+    backgroundColor: "#fff",
+    paddingBottom: 20,
+  },
 });
+
 
 export default Home;

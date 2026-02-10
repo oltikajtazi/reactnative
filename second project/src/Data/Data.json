@@ -1,34 +1,98 @@
 {
-
-    "popularProducts": [
-        {   
-        "id": 1,
-        "name":"iPad 8",
-        "category":"Tablet",
-        "price":"$329.00",
-        "image":"https://images.unsplash.com/photo-1525101238777-8878781fc06d",
-        "description":"The iPad 8th generation features a 10.2-inch Retina display, A12 Bionic chip, and support for Apple Pencil and Smart Keyboard."
-    },
-
+  "popularproducts": [
     {
-        "id": 2,
-        "name":"Samsung Galaxy Tab S7",
-        "category":"Tablet",
-        "price":"$649.99",
-        "image":"https://images.unsplash.com/photo-1530319067432-f2a729c03db5",
-        "description":"The Samsung Galaxy Tab S7 offers an 11-inch LTPS LCD display, Snapdragon 865+ processor, and S Pen support for productivity and creativity."
+      "id": 1,
+      "name": "iPad 8",
+      "category": "Tablet",
+      "price": "$880",
+      "image": "https://images.unsplash.com/photo-1525101238777-8878781fc06d",
+      "description": "Lorem Ipsum dolor sit amet, ut labore et dolore magna aliqua."
     },
-
-    {   
-        "id": 3,
-        "name":"Microsoft Surface Pro 7",
-        "category":"Tablet",
-        "price":"$749.99",
-        "image":"https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3",
-        "description":"The Microsoft Surface Pro 7 features a 12.3-inch PixelSense display, Intel Core processors, and a versatile kickstand for laptop-like functionality."
+    {
+      "id": 2,
+      "name": "iPhone X",
+      "category": "iPhone",
+      "price": "$750",
+      "image": "https://images.unsplash.com/photo-1530319067432-f2a729c03db5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    },
+    {
+      "id": 3,
+      "name": "Samsung S21",
+      "category": "Samsung",
+      "price": "$990",
+      "image": "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
     }
+  ], "ios": [
+    {
+      "id": 1,
+      "name": "iPhone X",
+      "category": "iOS",
+      "price": "$750",
+      "image": "https://images.unsplash.com/photo-1530319067432-f2a729c03db5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    },
+    {
+      "id": 2,
+      "name": "iPhone 12",
+      "category": "iOS",
+      "price": "$999",
+      "image": "https://images.unsplash.com/photo-1589492477829-5e65395b66cc",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    },
+    {
+      "id": 3,
+      "name": "iPhone 12 Pro",
+      "category": "iOS",
+      "price": "$999",
+      "image": "https://images.unsplash.com/photo-1570963904764-fff96652bbd",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    }
+  ],
 
- 
-
-    ]
+"android": [
+    {
+      "id": 1,
+      "name": "Xiaomi",
+      "category": "Android",
+      "price": "$990",
+      "image": "https://images.unsplash.com/photo-1575715715369-38aa1227786a",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    },
+    {
+      "id": 2,
+      "name": "Samsung S21",
+      "category": "Android",
+      "price": "$990",
+      "image": "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    }
+  ],
+  "lenovo": [
+    {
+      "id": 1,
+      "name": "Lenovo ThinkPad X1",
+      "category": "Laptop",
+      "price": "$1299",
+      "image": "https://images.unsplash.com/photo-1588872657840-218e412f427b",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    },
+    {
+      "id": 2,
+      "name": "Lenovo Tab P11",
+      "category": "Tablet",
+      "price": "$599",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    },
+    {
+      "id": 3,
+      "name": "Lenovo Yoga 9i",
+      "category": "2-in-1",
+      "price": "$1199",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation."
+    }
+  ]
 }
