@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import data from "../data/data.json";
-import Item from "../components/Item";
+import Item from "../components/item";
 
 class Ios extends React.Component {
   constructor() {
@@ -21,7 +21,7 @@ class Ios extends React.Component {
 
   componentDidMount() {
     this.setState({
-      product: data,
+      product: data.ios,
     });
   }
 

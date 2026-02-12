@@ -1,9 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const Item = ({ item }) => {
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity
+      style={styles.cardContainer}
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate("Single", { ...item })}
+    >
       <Image source={{ uri: item.image }} style={styles.img} />
 
       <View style={styles.textContainer}>
@@ -12,7 +16,7 @@ const Item = ({ item }) => {
         <Text style={styles.desc}>{item.description}</Text>
         <Text style={styles.price}>{item.price}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

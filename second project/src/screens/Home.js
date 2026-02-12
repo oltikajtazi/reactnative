@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import Swiper from "react-native-swiper";
 import Icon from "../components/Icons";
-import Item from "../components/Item";
+import Item from "../components/item";
 import data from "../data/data.json";
 
 const Home = () => {

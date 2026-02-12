@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import data from "../data/data.json";
-import Item from "../components/Item";
+import Item from "../components/item";
 
 class Lenovo extends React.Component {
   constructor() {
@@ -22,7 +22,7 @@ class Lenovo extends React.Component {
   componentDidMount() {
     console.log("Lenovo data:", data);
     this.setState({
-      product: data,
+      product: data.lenovo,
     });
   }
 

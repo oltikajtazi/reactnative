@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import data from "../data/data.json";
-import Item from "../components/Item";
+import Item from "../components/item";
 
 class Android extends React.Component {
   constructor() {
@@ -21,7 +21,7 @@ class Android extends React.Component {
 
   componentDidMount() {
     this.setState({
-      product: data ,
+      product: data.android,
     });
   }
 
@@ -36,7 +36,7 @@ class Android extends React.Component {
 
           <View style={styles.productsContainer}>
             <FlatList
-              data={this.state.product.android}
+              data={this.state.product}
               keyExtractor={(item) => item.id.toString()}
               renderItem={({ item }) => <Item item={item} />}
             />
