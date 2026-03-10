@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Prishtina Problem Reporter",
+    "slug": "prishtina-problem-reporter",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2196F3"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.prishtina.problemreporter",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app needs access to your location to report problems at the correct location.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to upload photos of problems.",
+        "NSCameraUsageDescription": "This app needs access to your camera to take photos of problems."
+      },
+      "config": {
+        "googleMapsApiKey": "YOUR_ACTUAL_API_KEY_HERE"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#2196F3",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.prishtina.problemreporter",
+      "permissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_ACTUAL_API_KEY_HERE"
+        }
+      }
+    },
+    "description": "A mobile app for reporting city infrastructure problems in Prishtina, Kosovo",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "prishtina-problem-reporter",
+  "version": "1.0.0",
+  "description": "A React Native mobile app for reporting city problems in Prishtina",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "~55.0.5",
+    "expo-status-bar": "~55.0.4",
+    "expo-location": "~55.1.2",
+    "expo-image-picker": "~55.0.11",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-native": "0.83.2",
+    "react-native-web": "^0.21.0",
+    "@react-navigation/native": "^6.1.10",
+    "@react-navigation/native-stack": "^6.9.19",
+    "@react-navigation/bottom-tabs": "^6.5.19",
+    "react-native-screens": "~4.23.0",
+    "react-native-safe-area-context": "~5.6.2",
+    "react-native-vector-icons": "^10.1.0",
+    "react-native-maps": "1.26.20",
+    "@react-native-picker/picker": "^2.7.2",
+    "@react-native-async-storage/async-storage": "2.2.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "react-native",
+    "expo",
+    "prishtina",
+    "city-problems",
+    "reporting"
+  ],
+  "author": "Prishtina City Development",
+  "license": "MIT",
+  "private": true
+}
