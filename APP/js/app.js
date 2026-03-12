@@ -1,4 +1,4 @@
-// Navigation
+
 function showHome() {
     document.querySelector('.categories-grid').parentElement.style.display = 'block';
     document.querySelector('.reports-view').style.display = 'none';
@@ -6,7 +6,7 @@ function showHome() {
     document.getElementById('reportsIcon').classList.remove('active');
 }
 
-// Settings modal
+
 const settingsModal = document.getElementById('settingsModal');
 const closeSettingsBtn = document.querySelector('.close-settings');
 
@@ -25,9 +25,9 @@ window.addEventListener('click', (e) => {
     if (e.target === settingsModal) closeSettings();
 });
 
-// theme preference
+
 function applyTheme(pref) {
-    // remove any existing theme classes
+   
     document.body.classList.remove('dark-mode');
     document.body.classList.remove('bright-mode');
     if (pref === 'dark') {
@@ -45,7 +45,7 @@ function loadTheme() {
     applyTheme(t);
 }
 
-// notification preference
+
 function loadNotifications() {
     const toggle = document.getElementById('notifToggle');
     if (!toggle) return;
@@ -70,7 +70,6 @@ function saveNotificationPref(enabled) {
     }
 }
 
-// app title & municipality email
 function loadAppSettings() {
     const title = localStorage.getItem('appTitle');
     if (title) {
@@ -105,7 +104,7 @@ function saveAppSettings() {
     }
 }
 
-// ... existing code continues below ...
+
 
 function showReports() {
     document.querySelector('.categories-grid').parentElement.style.display = 'none';
@@ -195,7 +194,7 @@ function formatDate(dateString) {
     return `${day}/${month}/${year} ${hours}:${minutes}`;
 }
 
-// Modal handling
+
 const modal = document.getElementById('reportModal');
 const closeBtn = document.querySelector('.close');
 
@@ -220,14 +219,13 @@ window.addEventListener('click', function(event) {
     }
 });
 
-// Category selection
+
 function selectCategory(category) {
     document.getElementById('selectedCategory').value = category;
     document.getElementById('modalTitle').textContent = 'Dërso raport - ' + category;
     openModal();
 }
 
-// Form validation
 function validateForm() {
     const category = document.getElementById('selectedCategory').value;
     const description = document.getElementById('description').value.trim();
@@ -243,7 +241,7 @@ function validateForm() {
     return true;
 }
 
-// Geolocation
+
 function setLocation(lat, lng) {
     document.getElementById('latitude').value = lat.toFixed(6);
     document.getElementById('longitude').value = lng.toFixed(6);
@@ -269,11 +267,11 @@ function detectLocation() {
     }
 }
 
-// Initialize Leaflet map for manual selection
+
 function initMap() {
     if (!document.getElementById('map')) return;
     
-    const map = L.map('map').setView([42.6667, 21.1667], 13); // Prishtina center
+    const map = L.map('map').setView([42.6667, 21.1667], 13);
     window.map = map;
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -294,14 +292,14 @@ function initMap() {
     });
 }
 
-// Initialize everything on DOMContentLoaded
+
 document.addEventListener('DOMContentLoaded', function() {
     const locationBtn = document.getElementById('detect-location');
     if (locationBtn) {
         locationBtn.addEventListener('click', detectLocation);
     }
     initMap();
-    // theme settings
+ 
     loadTheme();
     const themeSel = document.getElementById('themeSelect');
     if (themeSel) {
@@ -309,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
             applyTheme(this.value);
         });
     }
-    // notifications
+   
     loadNotifications();
     const notifEl = document.getElementById('notifToggle');
     if (notifEl) {
@@ -317,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
             saveNotificationPref(this.checked);
         });
     }
-    // app title & email settings
+
     loadAppSettings();
     const saveBtn = document.getElementById('saveSettingsBtn');
     if (saveBtn) {

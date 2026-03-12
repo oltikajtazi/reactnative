@@ -9,8 +9,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if ($username && $password) {
-        $stmt = $pdo->prepare('SELECT id, password_hash FROM admins WHERE username = :u');
-        $stmt->execute([':u' => $username]);
+        try {
+            $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = :u LIMIT 1");
+            $stmt->execute([':u' => $username]);
+        } catch (PDOException $e) {
+            if ($e->getCode() === '42S02') {
+                // Table missing — attempt to import schema then retry
+                import_sql_file($pdo, __DIR__ . '/../database.sql'); // admin/ -> parent
+                $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = :u LIMIT 1");
+                $stmt->execute([':u' => $username]);
+            } else {
+                throw $e;
+            }
+        }
+
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($admin && password_verify($password, $admin['password_hash'])) {
             $_SESSION['admin_id'] = $admin['id'];
@@ -21,6 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Username ose fjalëkalim i gabuar.';
             logAdminAction('login_failed', 'Failed login for user ' . $username);
         }
+    }
+}
+
+if (!function_exists('import_sql_file')) {
+    // -- helper to import SQL file if tables are missing (temporary, remove after use)
+    function import_sql_file(PDO $pdo, string $filePath): bool {
+        if (!file_exists($filePath)) return false;
+        $sql = file_get_contents($filePath);
+        if ($sql === false) return false;
+        // split statements on semicolon + newline (simple) and execute
+        $stmts = array_filter(array_map('trim', preg_split('/;\\s*\\n/', $sql)));
+        foreach ($stmts as $s) {
+            if ($s === '') continue;
+            $pdo->exec($s);
+        }
+        return true;
     }
 }
 ?>

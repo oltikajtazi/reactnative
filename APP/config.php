@@ -20,3 +20,18 @@ try {
 } catch (PDOException $e) {
     die('Gabim lidhjeje me bazën e të dhënave: ' . $e->getMessage());
 }
+
+// -- helper to import SQL file if tables are missing (temporary, remove after use)
+if (!function_exists('import_sql_file')) {
+    function import_sql_file(PDO $pdo, string $filePath): bool {
+        if (!file_exists($filePath)) return false;
+        $sql = file_get_contents($filePath);
+        if ($sql === false) return false;
+        $stmts = array_filter(array_map('trim', preg_split('/;\s*\n/', $sql)));
+        foreach ($stmts as $s) {
+            if ($s === '') continue;
+            $pdo->exec($s);
+        }
+        return true;
+    }
+}
